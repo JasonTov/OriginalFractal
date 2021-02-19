@@ -1,19 +1,31 @@
-ArrayList<Curve> lines = new ArrayList<Curve>();
-float factor = 2.2;
+int count;
 
 public void setup()
 {
-  size(1500,1500);
+  size(1000,1000);
   background(0,0,0);
 }
 
 public void draw()
 {
-  recursion(750,750,500);
+
+}
+
+public void mouseClicked()
+{
+  count = 0;
+  recursion(0,500,500);
+  System.out.println(count);
 }
 
 public void segment(float x, float y, float dia)
 {
+  int r = (int)(255*Math.random());
+  int g = (int)(255*Math.random());
+  int b = (int)(255*Math.random());
+  
+  count++;
+  
   fill(0,0,0);
   stroke(255,255,255);
   ellipse(x+(0.5*dia),y,dia,dia*1.5);
@@ -22,7 +34,7 @@ public void segment(float x, float y, float dia)
   stroke(255,255,255);
   ellipse(x-(0.5*dia),y,dia,dia*1.5);
   
-  fill(50,0,50);
+  fill(r,g,b);
   stroke(0,0,0);
   circle(x,y,dia);
 }
